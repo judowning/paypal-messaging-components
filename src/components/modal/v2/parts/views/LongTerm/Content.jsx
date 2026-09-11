@@ -47,10 +47,11 @@ const getAPRDetails = ({ offers, genericDisclaimer, disclaimer: { zeroAPR, mixed
     }
 
     // TODO: Clean up backwards compatible code after release and content updates.
-    return qualifyingOffers.map(({ content: { disclaimer } }) => {
+    return qualifyingOffers.map(({ content: { disclaimer, disclaimerFootnote } = {} }) => {
         if (qualifyingOffers.length === totalNonZero) {
             return {
                 aprDisclaimer: disclaimer?.nonZeroAPR ?? nonZeroAPR,
+                disclaimerFootnote: disclaimerFootnote?.nonZeroAPR,
                 aprType: 'nonZeroAPR'
             };
         }
@@ -58,12 +59,14 @@ const getAPRDetails = ({ offers, genericDisclaimer, disclaimer: { zeroAPR, mixed
         if (qualifyingOffers.length === totalZero) {
             return {
                 aprDisclaimer: disclaimer?.zeroAPR ?? zeroAPR,
+                disclaimerFootnote: disclaimerFootnote?.zeroAPR,
                 aprType: 'zeroAPR'
             };
         }
 
         return {
             aprDisclaimer: disclaimer?.mixedAPR ?? mixedAPR,
+            disclaimerFootnote: disclaimerFootnote?.mixedAPR,
             aprType: 'mixedAPR'
         };
     });
@@ -232,6 +235,15 @@ export const LongTerm = ({
                     expandedState={expandedState}
                 />
             </div>
+            {country === 'AU' && offerAPRDisclaimers?.[0]?.disclaimerFootnote && (
+                <div
+                    className={`content__row disclaimer-footnote ${expandedState ? '' : 'collapsed'} ${
+                        useNewCheckoutDesign === 'true' ? 'checkout' : ''
+                    } ${useV5Design === 'true' ? 'v5Design' : ''}`}
+                >
+                    {offerAPRDisclaimers[0].disclaimerFootnote}
+                </div>
+            )}
             <div
                 className={`content__row disclosure ${expandedState ? '' : 'collapsed'} ${
                     useNewCheckoutDesign === 'true' ? 'checkout' : ''
