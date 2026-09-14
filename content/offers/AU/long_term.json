@@ -30,8 +30,8 @@
     },
     "content": {
         "calculator": {
-            "belowThreshold": "Enter an amount between {formattedMinAmount} - {formattedMaxAmount}.",
-            "aboveThreshold": "Enter an amount between {formattedMinAmount} - {formattedMaxAmount}."
+            "belowThreshold": "Enter an amount between {formattedMinAmount} AUD - {formattedMaxAmount} AUD.",
+            "aboveThreshold": "Enter an amount between {formattedMinAmount} AUD - {formattedMaxAmount} AUD."
         },
         "disclaimer": {
             "nonZeroAPR": "Comparison rate: 12.99% p.a.*",
