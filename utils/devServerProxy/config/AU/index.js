@@ -3,11 +3,16 @@ export default {
         country: 'AU',
         modalViews: [
             {
+                template: 'product_list.json',
+                product: 'PRODUCT_LIST'
+            },
+            {
                 template: 'short_term.json',
                 product: 'PAY_LATER_SHORT_TERM'
             },
             {
-                template: 'long_term_placeholder.json',
+                template: 'long_term.json',
+                offersTemplate: 'long_term.json',
                 product: 'PAY_LATER_LONG_TERM'
             }
         ],
@@ -77,7 +82,8 @@ export default {
         country: 'AU',
         modalViews: [
             {
-                template: 'long_term_placeholder.json',
+                template: 'long_term.json',
+                offersTemplate: 'long_term.json',
                 product: 'PAY_LATER_LONG_TERM'
             }
         ],
@@ -128,7 +134,8 @@ export default {
         country: 'AU',
         modalViews: [
             {
-                template: 'long_term_placeholder.json',
+                template: 'long_term.json',
+                offersTemplate: 'long_term.json',
                 product: 'PAY_LATER_LONG_TERM'
             }
         ],
